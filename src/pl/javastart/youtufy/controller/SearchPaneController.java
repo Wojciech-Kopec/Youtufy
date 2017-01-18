@@ -23,20 +23,20 @@ public class SearchPaneController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // dodajemy zdarzenie do pola tekstowego
-        // klasa anonimowa, poniewa¿ jest nieco rozbudowane
+        // klasa anonimowa, poniewaï¿½ jest nieco rozbudowane
         searchTextField.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
  
             @Override
             public void handle(KeyEvent event) {
  
-                // zapisujemy do zmiennej wartoœæ z pola wyszukiwania
+                // zapisujemy do zmiennej wartoï¿½ï¿½ z pola wyszukiwania
                 String searchQuery = searchTextField.getText();
                 ObservableList<String> historyList = historyListView.getItems();
  
-                // jeœli wciœniêto Enter
+                // jeï¿½li wciï¿½niï¿½to Enter
                 if (event.getCode().equals(KeyCode.ENTER)) {
  
-                    // sprawdzamy, element nie by³ ju¿ dodany do listy jako
+                    // sprawdzamy, element nie byï¿½ juï¿½ dodany do listy jako
                     // ostatni
                     if (historyList.isEmpty() || !historyList.get(0).equals(searchQuery)) {
                         historyList.add(0, searchQuery);

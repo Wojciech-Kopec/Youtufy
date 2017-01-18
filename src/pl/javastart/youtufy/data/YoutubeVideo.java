@@ -1,13 +1,19 @@
 package pl.javastart.youtufy.data;
- 
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
- 
+
 public class YoutubeVideo {
     private StringProperty id;
     private StringProperty title;
     private StringProperty author;
-     
+
+    public YoutubeVideo() {
+        id = new SimpleStringProperty();
+        title = new SimpleStringProperty();
+        author = new SimpleStringProperty();
+    }
+
     public String getId() {
         return id.get();
     }
@@ -16,7 +22,7 @@ public class YoutubeVideo {
     }
     public StringProperty idProperty() {
         if (id == null) id = new SimpleStringProperty(this, "id");
-        return id; 
+        return id;
     }
     public String getTitle() {
         return title.get();
@@ -26,7 +32,7 @@ public class YoutubeVideo {
     }
     public StringProperty TitleProperty() {
         if (title == null) title = new SimpleStringProperty(this, "title");
-        return title; 
+        return title;
     }
     public String getAuthor() {
         return author.get();
@@ -36,18 +42,11 @@ public class YoutubeVideo {
     }
     public StringProperty authorProperty() {
         if (author == null) author = new SimpleStringProperty(this, "author");
-        return author; 
+        return author;
     }
- 
+
     @Override
     public String toString() {
         return "YoutubeVideo [id=" + id + ", title=" + title + ", author=" + author + "]";
     }
-    
-    public YoutubeVideo() {
-        id = new SimpleStringProperty();
-        title = new SimpleStringProperty();
-        author = new SimpleStringProperty();
-    }
-     
 }

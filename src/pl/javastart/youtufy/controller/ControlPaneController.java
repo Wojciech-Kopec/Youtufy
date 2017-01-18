@@ -34,9 +34,9 @@ public class ControlPaneController implements Initializable {
         playButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                // jeœli przycisk nie by³ wciœniêty, to znaczy, ¿e ma przejœæ w
+                // jeï¿½li przycisk nie byï¿½ wciï¿½niï¿½ty, to znaczy, ï¿½e ma przejï¿½ï¿½ w
                 // Play
-                // jeœli przycisk by³ wciœniêty, to po wciœniêciu przechodzi w
+                // jeï¿½li przycisk byï¿½ wciï¿½niï¿½ty, to po wciï¿½niï¿½ciu przechodzi w
                 // Stop
                 if (playButton.isSelected()) {
                     System.out.println("Play");
