@@ -51,4 +51,16 @@ public class ControlPaneController implements Initializable {
  
         nextButton.setOnAction(x -> System.out.println("Next"));
     }
+
+    public ToggleButton getPlayButton() {
+        return playButton;
+    }
+
+    public Button getPreviousButton() {
+        return previousButton;
+    }
+
+    public Button getNextButton() {
+        return nextButton;
+    }
 }

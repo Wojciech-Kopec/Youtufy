@@ -66,14 +66,13 @@ public class Youtube {
     }
 
     private void search(String query) throws IOException {
-        // pobieramy źródło strony
-        String pageContent = getPageSource(query);
 
-        // wyciągamy informacje o filmach
+        String pageContent = getPageSource(query);
         Document doc = Jsoup.parse(pageContent);
         Elements videosNodes = doc.select(VIDEO_NODES);
 
         List<YoutubeVideo> videos = new ArrayList<>();
+        System.out.println("Elementów: " + videosNodes.size());
         for (Element e : videosNodes) {
             Element titleUrlElement = e.select(VIDEO_TITLE_URL).first();
             Element authorElement = e.select(VIDEO_AUTHOR).first();
@@ -82,24 +81,22 @@ public class Youtube {
             String title = titleUrlElement.text();
             String author = authorElement.text();
             if (url.contains("list") || url.contains("channel") || url.contains("user")) {
-                continue;
+                System.out.println("Pominięto materiał");
             } else {
                 YoutubeVideo yv = new YoutubeVideo();
                 yv.setId(url);
                 yv.setTitle(title);
                 yv.setAuthor(author);
                 videos.add(yv);
+                System.out.println("Dodano materiał");
             }
         }
-
-        // usuwamy wszystkie obiekty z Observable List i dodajemy nowe wyniki
-        // wyszukiwania
         youtubeVideos.clear();
         youtubeVideos.addAll(videos);
+        System.out.println("Dodano do youtubeVideos");
     }
 
     private String getPageSource(String query) throws IOException {
-        // Tworzymy adres URL zapytania
         URI searchUri = null;
         try {
             searchUri = new URIBuilder(YOUTUBE_SEARCH_URL).addParameter(SEARCH_PARAMETER, query).build();
@@ -107,8 +104,7 @@ public class Youtube {
             System.err.println("Błąd przy budowaniu adresu URL");
         }
 
-        // tworzymy obiekty do wysłania żądania i odebrania odpowiedzi od
-        // serwera
+        // tworzymy obiekty do wysłania żądania i odebrania odpowiedzi od serwera
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet request = new HttpGet(searchUri);
         CloseableHttpResponse response = null;
@@ -128,9 +124,6 @@ public class Youtube {
             response.close();
             httpClient.close();
         }
-
-        // zwracamy źródło strony
         return pageContent;
     }
-
 }
