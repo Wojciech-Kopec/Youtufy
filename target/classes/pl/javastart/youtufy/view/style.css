@@ -1,4 +1,4 @@
-/* t�o dla wsp�lnych klas */
+/* tło dla wspólnych klas */
 .vbox,
 .hbox,
 .list-view{
@@ -6,7 +6,7 @@
 }
  
 /* CONTROL-PANE */
-/* t�o przycisk�w i wsp�lne ustawienie wype�nienia */
+/* tło przycisków i wspólne ustawienie wypełnienia */
 .button,
 .toggle-button {
     -fx-background-color: #1d1d1d;
@@ -15,7 +15,7 @@
     -fx-background-size: 100% 100%;
 }
  
-/* ustawienie grafik t�a przycisk�w */
+/* ustawienie grafik tła przycisków */
 #play-button {
     -fx-background-image: url("../res/Play.png");
 }
@@ -28,7 +28,7 @@
     -fx-background-image: url("../res/Next.png");
 }
  
-/* kolor przycisk�w po najechaniu */
+/* kolor przycisków po najechaniu */
 #previous-button:hover,
 #next-button:hover,
 #play-button:hover,
@@ -59,11 +59,9 @@
 }
  
 .web-view,
-.web-view .scroll-bar:vertical { 
-    -fx-blend-mode: darken;
-}
+.web-view .scroll-bar:vertical,
  
-/* t�o tabeli */
+/* tło tabeli */
 .table-view,
 .table-view .column-header-background,
 .table-view .column-header-background .nested-column-header .table-column,
@@ -72,7 +70,7 @@
     -fx-background-color: transparent;
 }
  
-/* efekty do nag��wka tabeli */
+/* efekty do nagłówka tabeli */
 .table-view .column-header .label {
     -fx-text-fill: #f0f0f0;
     -fx-font-weight: bold;
@@ -84,23 +82,23 @@
     -fx-border-insets: 0px 30px 1px 0px;
 }
  
-/* t�o kom�rki */
+/* tło komórki */
 .table-view .table-row-cell {
     -fx-background-color: #1d1d1d;
 }
  
-/* kolor tekstu kom�rek */
+/* kolor tekstu komórek */
 .table-view:row-selection .virtual-flow .clipped-container .sheet .table-row-cell:filled .table-column:filled {
     -fx-text-fill: #f0f0f0;
 }
  
-/* kolor kom�rki po najechaniu i klikni�ciu */
+/* kolor komórki po najechaniu i kliknięciu */
 .table-view:row-selection .virtual-flow .clipped-container .sheet .table-row-cell:filled:hover,
 .table-view:row-selection .virtual-flow .clipped-container .sheet .table-row-cell:filled:selected {
     -fx-background-color: #81b71a;
 }
  
-/* kolor ramki kom�rki */
+/* kolor ramki komórki */
 .table-view:row-selection:constrained-resize .virtual-flow .clipped-container .sheet .table-row-cell:filled .table-column:filled {
     -fx-border-color: transparent;
 }
@@ -130,13 +128,13 @@
     -fx-background-color: #1d1d1d;
 }
  
-/* kolor t�a i czcionki wierszy */
+/* kolor tła i czcionki wierszy */
 .list-view .virtual-flow .clipped-container .sheet .list-cell {
     -fx-background-color: #1d1d1d;
     -fx-text-fill: #f0f0f0;
 }
  
-/* kolor wiersza po najechaniu i klikni�ciu */
+/* kolor wiersza po najechaniu i kliknięciu */
 .list-view .virtual-flow .clipped-container .sheet .list-cell:filled:hover,
 .list-view .virtual-flow .clipped-container .sheet .list-cell:filled:selected {
     -fx-background-color: #81b71a;

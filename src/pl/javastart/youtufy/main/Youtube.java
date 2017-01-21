@@ -40,16 +40,8 @@ public class Youtube {
         return youtubeVideos;
     }
 
-    public void setYoutubeVideos(ObservableList<YoutubeVideo> youtubeVideos) {
-        this.youtubeVideos = youtubeVideos;
-    }
-
     public StringProperty getSearchQuery() {
         return searchQuery;
-    }
-
-    public void setSearchQuery(StringProperty searchQuery) {
-        this.searchQuery = searchQuery;
     }
 
     public Youtube() {
@@ -58,11 +50,7 @@ public class Youtube {
     }
 
     public void search() throws IOException {
-        try {
-            search(searchQuery.get());
-        } catch (IOException e) {
-            throw e;
-        }
+        search(searchQuery.get());
     }
 
     private void search(String query) throws IOException {
@@ -108,7 +96,7 @@ public class Youtube {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet request = new HttpGet(searchUri);
         CloseableHttpResponse response = null;
-        HttpEntity httpEntity = null;
+        HttpEntity httpEntity;
         String pageContent = null;
 
         // pobieramy treść strony WWW
@@ -116,8 +104,6 @@ public class Youtube {
             response = httpClient.execute(request);
             httpEntity = response.getEntity();
             pageContent = EntityUtils.toString(httpEntity);
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

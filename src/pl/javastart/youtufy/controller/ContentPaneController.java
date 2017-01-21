@@ -25,16 +25,8 @@ public class ContentPaneController implements Initializable {
         return resultTableView;
     }
 
-    public void setResultTableView(TableView<YoutubeVideo> resultTableView) {
-        this.resultTableView = resultTableView;
-    }
-
     public WebView getVideoWebView() {
         return videoWebView;
-    }
-
-    public void setVideoWebView(WebView videoWebView) {
-        this.videoWebView = videoWebView;
     }
 
     @Override

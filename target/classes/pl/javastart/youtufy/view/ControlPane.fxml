@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox alignment="CENTER_LEFT" styleClass="hbox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.javastart.youtufy.controller.ControlPaneController">
+<HBox alignment="CENTER_LEFT" styleClass="hbox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pl.javastart.youtufy.controller.ControlPaneController">
     <children>
         <Button id="previous-button" fx:id="previousButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" HBox.hgrow="NEVER" />
         <ToggleButton id="play-button" fx:id="playButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" HBox.hgrow="NEVER" />

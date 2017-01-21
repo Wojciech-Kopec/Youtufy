@@ -2,7 +2,9 @@ package pl.javastart.youtufy.controller;
  
 import java.net.URL;
 import java.util.ResourceBundle;
- 
+
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,7 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
- 
+import pl.javastart.youtufy.data.YoutubePlayer;
+
 public class ControlPaneController implements Initializable {
  
     @FXML
@@ -30,26 +33,34 @@ public class ControlPaneController implements Initializable {
  
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // dodanie akcji przycisku dla playButton
-        playButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // je�li przycisk nie by� wci�ni�ty, to znaczy, �e ma przej�� w
-                // Play
-                // je�li przycisk by� wci�ni�ty, to po wci�ni�ciu przechodzi w
-                // Stop
-                if (playButton.isSelected()) {
-                    System.out.println("Play");
-                } else {
-                    System.out.println("Stop");
-                }
-            }
+        playButton.setOnAction(event -> {
+            if (playButton.isSelected())
+                System.out.println("Play");
+            else
+                System.out.println("Stop");
         });
  
-        // dodanie akcji dla previous i next
         previousButton.setOnAction(x -> System.out.println("Previous"));
  
         nextButton.setOnAction(x -> System.out.println("Next"));
+    }
+
+    protected void progressUpdate() {
+        Task<Void> progressTask = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                while(!isCancelled()) {
+                    if(playButton.isSelected() && YoutubePlayer.PLAYING.get()) {
+                        Platform.runLater(() -> songSlider.setValue(songSlider.getValue()+0.1));
+                    }
+                    Thread.sleep(100);
+                }
+                return null;
+            }
+        };
+        Thread t = new Thread(progressTask);
+        t.setDaemon(true);
+        t.start();
     }
 
     public ToggleButton getPlayButton() {
@@ -62,5 +73,13 @@ public class ControlPaneController implements Initializable {
 
     public Button getNextButton() {
         return nextButton;
+    }
+
+    public Slider getVolumeSlider() {
+        return volumeSlider;
+    }
+
+    public Slider getSongSlider() {
+        return songSlider;
     }
 }

@@ -22,16 +22,12 @@ public class SearchPaneController implements Initializable {
  
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        searchTextField.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
- 
-            @Override
-            public void handle(KeyEvent event) {
-                String searchQuery = searchTextField.getText();
-                ObservableList<String> historyList = historyListView.getItems();
-                if (event.getCode().equals(KeyCode.ENTER)) {
-                    if (historyList.isEmpty() || !historyList.get(0).equals(searchQuery)) {
-                        historyList.add(0, searchQuery);
-                    }
+        searchTextField.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            String searchQuery = searchTextField.getText();
+            ObservableList<String> historyList = historyListView.getItems();
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                if (historyList.isEmpty() || !historyList.get(0).equals(searchQuery)) {
+                    historyList.add(0, searchQuery);
                 }
             }
         });

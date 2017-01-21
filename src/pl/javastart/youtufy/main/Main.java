@@ -10,9 +10,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		Parent parent = FXMLLoader.load(getClass().getResource("/pl/javastart/youtufy/view/MainPane.fxml"));
-		Scene scene = new Scene(parent);
+		Scene scene = new Scene(parent, 940, 660);
 		stage.setScene(scene);
-		stage.setTitle("Youtufy v0.5");
+		stage.setTitle("Youtufy v1.0");
 		setUserAgentStylesheet(STYLESHEET_CASPIAN);
 		stage.show();
 	}

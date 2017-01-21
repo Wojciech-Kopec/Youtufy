@@ -6,12 +6,12 @@ public class YoutubePlayer {
 
     public final static AtomicBoolean PLAYING = new AtomicBoolean(false);
 
-    public static enum PlayerState {
+    public enum PlayerState {
         UNSTARTED(-1), ENDED(0), PLAYING(1), PAUSED(2), BUFFERING(3);
 
         private int state;
 
-        private PlayerState(int state) {
+        PlayerState(int state) {
             this.state = state;
         }
 
